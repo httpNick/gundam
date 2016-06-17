@@ -3,7 +3,7 @@ import React from 'react';
 const CheckBoxList = ( { onChange, items } ) => (
   <ul>
     {
-      items.map((x, index) =>
+      items.toggles.map((x, index) =>
         <label key={index}>
           <input
             type="checkbox"

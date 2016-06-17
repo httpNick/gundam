@@ -1,3 +1,4 @@
+import { TOGGLE_CHOICE } from '../actions';
 function toggles(state = [{checked : false, text : 'hello' }], action) {
 
   switch(action.type) {
@@ -9,7 +10,7 @@ function toggles(state = [{checked : false, text : 'hello' }], action) {
         {checked : false, text: action.text}
       ];
 
-    case 'TOGGLE_CHOICE' :
+    case TOGGLE_CHOICE :
 
       return state.map(x => {
 
