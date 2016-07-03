@@ -39,26 +39,25 @@ export const requestPosts = (gundams) => {
   }
 };
 
-export const fetchGundams = () => {
+export const FETCH_GUNDAMS = 'FETCH_FUNDAMS';
+
+export function fetchGundams() {
 
   return function (dispatch) {
 
-    dispatch(requestPosts(subreddit));
-    var urls = [
-      'http://gundam.wikia.com/api/v1/Navigation/Data'
-    ];
-
+    dispatch(requestPosts('gundams'));
     var gundams = rx.Observable
-      .from(urls)
-      .flatMap(x => fetch(x))
-      .flatMap(x => x.json())
-      .map(x => x.navigation.wiki);
+      .fromPromise(fetch('/fetch/gundams'))
+      .flatMap(x => x.json());
 
     gundams.subscribe(
-      (n) => dispatch(receiveGundams(n.filter(x => x.text === "Mobile Weapons"))),
+      (n) => {
+        console.log(n);
+        return dispatch(receiveGundams(n))
+      },
       (e) => console.log(e),
-      (d) => console.log('done')
     );
+
   }
-};
+}
 
