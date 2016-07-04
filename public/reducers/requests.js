@@ -1,10 +1,10 @@
 import {
-  REQUEST_GUNDAMS,
-  RECEIVE_GUNDAMS,
+  REQUEST_HIERARCHY,
+  RECEIVE_HIERARCHY,
   SELECT_GUNDAM
 } from '../actions';
 
-export function selectGundam(state = 'Death Scythe', action) {
+export function selectGundam(state, action) {
   switch (action.type) {
     case SELECT_GUNDAM:
       return action.gundam;
@@ -16,7 +16,7 @@ export function selectGundam(state = 'Death Scythe', action) {
 export function gundamRequests(state = { isFetching: false, items: [] }, action) {
 
   switch(action.type) {
-    case REQUEST_GUNDAMS:
+    case REQUEST_HIERARCHY:
 
       return Object.assign(
         {},
@@ -24,7 +24,7 @@ export function gundamRequests(state = { isFetching: false, items: [] }, action)
         {isFetching : true}
       );
 
-    case RECEIVE_GUNDAMS:
+    case RECEIVE_HIERARCHY:
 
       return Object.assign(
         {},

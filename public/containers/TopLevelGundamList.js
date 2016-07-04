@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onChange : (item) => {
+    onClick : (item) => {
       dispatch(selectGundam(item));
     }
   }

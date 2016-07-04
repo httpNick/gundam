@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CheckBoxList = ( { onChange, items } ) => (
-  <ul>
+  <ul className="main">
     {
       items.toggles.map((x, index) =>
         <label key={index}>

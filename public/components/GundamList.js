@@ -1,9 +1,9 @@
 import React from 'react';
 
-const GundamList = ( { onChange, items } ) => {
+const GundamList = ( { onClick, items } ) => {
   if (!items.gundamRequests.isFetching) {
     return (
-      <section>
+      <section className="left">
         <h1>{items.gundamRequests.items.text}</h1>
         <ul>
         {
@@ -14,7 +14,7 @@ const GundamList = ( { onChange, items } ) => {
                 {
                   x.children.map((z, index) =>
                     <li key={index+z.text}>
-                      <label>{z.text}</label>
+                      <label onClick = {() => onClick(z)}>{z.text}</label>
                     </li>
                   )
                 }
