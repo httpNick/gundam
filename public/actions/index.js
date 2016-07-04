@@ -39,7 +39,7 @@ export const requestPosts = (gundams) => {
   }
 };
 
-export const FETCH_GUNDAMS = 'FETCH_FUNDAMS';
+export const FETCH_GUNDAMS = 'FETCH_GUNDAMS';
 
 export function fetchGundams() {
 
@@ -52,10 +52,9 @@ export function fetchGundams() {
 
     gundams.subscribe(
       (n) => {
-        console.log(n);
         return dispatch(receiveGundams(n))
       },
-      (e) => console.log(e),
+      (e) => console.log(e)
     );
 
   }
